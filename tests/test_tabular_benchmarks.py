@@ -1,7 +1,7 @@
 import logging
 import unittest
 import pytest
-
+import numpy as np
 logging.basicConfig(level=logging.DEBUG)
 
 import os
@@ -64,7 +64,7 @@ class TestTabularBenchmark(unittest.TestCase):
         assert result['function_value'] == pytest.approx(mean, abs=0.0001)
 
         runs = result['info']['valid_rmse_per_run']
-        calculated_mean = sum(runs) / len(runs)
+        calculated_mean = np.mean(runs)
         assert calculated_mean == pytest.approx(mean, abs=0.0001)
 
         runtime = 23.1000
