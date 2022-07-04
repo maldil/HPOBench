@@ -86,7 +86,7 @@ class TestTabularBenchmark(unittest.TestCase):
         assert result['function_value'] == pytest.approx(mean, abs=0.0001)
 
         runs = result['info']['valid_rmse_per_run']
-        calculated_mean = sum(runs) / len(runs)
+        calculated_mean = np.mean(runs)
         assert calculated_mean == pytest.approx(mean, abs=0.0001)
 
         runtime = 5.2477
@@ -108,7 +108,7 @@ class TestTabularBenchmark(unittest.TestCase):
         assert result['function_value'] == pytest.approx(mean, abs=0.0001)
 
         runs = result['info']['valid_rmse_per_run']
-        calculated_mean = sum(runs) / len(runs)
+        calculated_mean = np.mean(runs)
         assert calculated_mean == pytest.approx(mean, abs=0.0001)
 
         runtime = 19.24213
