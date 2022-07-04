@@ -140,8 +140,8 @@ class FCNetBaseBenchmark(AbstractBenchmark):
             valid_rmse_list.append(float(valid_rmse))
             runtime_list.append(float(runtime))
 
-        valid_rmse = sum(valid_rmse_list) / len(valid_rmse_list)
-        runtime = sum(runtime_list)
+        valid_rmse = np.mean(valid_rmse_list)
+        runtime = np.sum(runtime_list)
 
         return {'function_value': float(valid_rmse),
                 'cost': float(runtime),
